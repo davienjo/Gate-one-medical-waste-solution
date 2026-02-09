@@ -51,4 +51,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// form submit
+const form = document.getElementById("contactForm");
+const successMsg = document.getElementById("successMsg");
 
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: { Accept: "application/json" },
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Show success message with fade-in effect
+        successMsg.classList.add("show");
+        form.reset();
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          successMsg.classList.remove("show");
+        }, 5000);
+      } else {
+        alert("There was an error submitting the form. Please try again.");
+      }
+    })
+    .catch((error) => {
+      alert("There was an error submitting the form. Please try again.");
+      console.error(error);
+    });
+});

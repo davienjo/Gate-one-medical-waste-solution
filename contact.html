@@ -47,27 +47,7 @@
       <div class="nav-overlay"></div>
     </header>
 
-    <!-- <header>
-      <nav class="navbar">
-        <div class="logo">
-          <img src="images/logo.png" alt="" />
-        </div>
-
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="products.html">Products</a></li>
-        </ul>
-
-        <a class="nav-end" href="contact.html">Contacts</a>
-
-        < Hamburger menu -->
-
-    <!-- <i class="fa-solid fa-bars hamburger"></i>
-      </nav>
-      <div class="nav-overlay"></div>
-    </header> -->
+    
 
     <main>
       <section class="contact-section">
@@ -76,29 +56,39 @@
           Have questions or need assistance? Reach out to our team using the
           information below.
         </p>
-        <form class="contact-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" placeholder="Your Name" id="name" required />
-          </div>
+        
+<form class="contact-form" id="contactForm" action="https://formsubmit.co/pgngugi@gmail.com" method="POST">
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" placeholder="Your Name" id="name" name="name" required />
+    </div>
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" placeholder="example@mail.com" id="email" />
-          </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" placeholder="example@mail.com" id="email" name="email" required />
+    </div>
 
-          <div class="form-group">
-            <textarea
-              placeholder="Your Message"
-              cols="20"
-              rows="5"
-              placeholder="Write Your Message"
-            ></textarea>
-          </div>
-          <button type="submit">Send Message</button>
-  <p id="successMsg" style="color:green; display:none;">Message opened in your email client!</p>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        cols="20"
+        rows="5"
+        placeholder="Write Your Message"
+        required
+      ></textarea>
+    </div>
 
-        </form>
+    <button type="submit" class="submit-btn">Send Message</button>
+
+    <p id="successMsg">Message sent successfully!</p>
+
+    <!-- Optional: disable captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
+  </form>
 
         <div class="contact-info">
           <div class="contact-item">

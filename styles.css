@@ -786,6 +786,22 @@ a {
   background: var(--darker-green);
 }
 
+  /* Success message */
+  #successMsg {
+    color: green;
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  #successMsg.show {
+    display: block;
+    opacity: 1;
+  }
+
 
 /* Floating WhatsApp Button */
 .whatsapp-float {
