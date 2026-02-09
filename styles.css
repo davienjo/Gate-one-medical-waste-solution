@@ -101,7 +101,7 @@ a {
   pointer-events: all;
 }
 
-.mobile-only{
+.mobile-only {
   display: none;
 }
 
@@ -786,22 +786,21 @@ a {
   background: var(--darker-green);
 }
 
-  /* Success message */
-  #successMsg {
-    color: green;
-    display: none;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
+/* Success message */
+#successMsg {
+  color: green;
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
 
-  #successMsg.show {
-    display: block;
-    opacity: 1;
-  }
-
+#successMsg.show {
+  display: block;
+  opacity: 1;
+}
 
 /* Floating WhatsApp Button */
 .whatsapp-float {
@@ -819,14 +818,15 @@ a {
   font-size: 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 10000;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .whatsapp-float:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
-
 
 /* FOOTER */
 /* FOOTER */
