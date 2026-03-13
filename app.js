@@ -1,4 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // LENIS
+
+  const lenis = new Lenis();
+
+  lenis.on("scroll", ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
+
+// HERO SECTION
+
+const hero = gsap.timeline();
+hero.from(".hero-section h1", {x:800, duration:2, opacity:0});
+hero.from(".hero-section p", {x:-1000, duration:3},"<");
+hero.from( ".hero-links", {y:100, duration:1, opacity:0});
+hero.from( ".navbar",{duration:2, y:-30, opacity:0}, "-=2");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // SCROLL TRIGGER
+
   // -------- TESTIMONIALS SLIDER --------
   const testimonialTrack = document.querySelector(".testimonial-list");
   const testimonialSlides = document.querySelectorAll(".testimonial-item");
