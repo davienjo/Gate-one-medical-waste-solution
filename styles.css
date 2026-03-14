@@ -396,23 +396,6 @@ a {
   background: var(--text-dark);
 }
 
-/* Responsive: show 1 on mobile, 2 on tablet, 3 on desktop
-@media (min-width: 600px) {
-  .testimonial-item {
-    flex: 0 0 50%;
-  }
-}
-
-@media (min-width: 900px) {
-  .testimonial-item {
-    flex: 0 0 33.3333%;
-  }
-} */
-
-
-
-
-
 /* SERVICE SECTION */
 #services {
   padding: 5rem 2rem;
@@ -961,5 +944,3 @@ a {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
-
-
