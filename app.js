@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // LENIS
+  // ------------------------------
+  // GSAP + LENIS SMOOTH SCROLL
+  // ------------------------------
+  gsap.registerPlugin(ScrollTrigger);
 
   const lenis = new Lenis();
 
@@ -11,66 +14,107 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gsap.ticker.lagSmoothing(0);
 
+  // ------------------------------
+  // HERO SECTION ANIMATION
+  // ------------------------------
+  const hero = gsap.timeline();
 
-// HERO SECTION
+  hero.from(".hero-section h1", {
+    x: 400,
+    duration: 2,
+    opacity: 0,
+    ease: "power3.out",
+  });
 
-const hero = gsap.timeline();
-hero.from(".hero-section h1", {x:800, duration:2, opacity:0});
-hero.from(".hero-section p", {x:-1000, duration:3},"<");
-hero.from( ".hero-links", {y:100, duration:1, opacity:0});
-hero.from( ".navbar",{duration:2, y:-30, opacity:0}, "-=2");
+  hero.from(
+    ".hero-section p",
+    {
+      x: -400,
+      duration: 2,
+      opacity: 0,
+      ease: "power3.out",
+    },
+    "<",
+  );
 
+  hero.from(".hero-links", {
+    y: 100,
+    duration: 1,
+    opacity: 0,
+    stagger: 0.3,
+    ease: "power3.out",
+  });
 
+  hero.from(
+    ".navbar",
+    {
+      y: -30,
+      duration: 1,
+      opacity: 0,
+      ease: "power3.out",
+    },
+    "-=1",
+  );
 
+  // ------------------------------
+  // REUSABLE SLIDER FUNCTION
+  // ------------------------------
+  function createSlider(track, slides, prevBtn, nextBtn, intervalTime) {
+    if (!track || slides.length === 0) return;
 
+    let index = 0;
 
+    function showSlide(i) {
+      const total = slides.length;
 
+      if (i < 0) index = total - 1;
+      else if (i >= total) index = 0;
+      else index = i;
 
-
-
-
-
-
-
-
-
-  // SCROLL TRIGGER
-
-  // -------- TESTIMONIALS SLIDER --------
-  const testimonialTrack = document.querySelector(".testimonial-list");
-  const testimonialSlides = document.querySelectorAll(".testimonial-item");
-  let testimonialIndex = 0;
-
-  if (testimonialTrack && testimonialSlides.length > 0) {
-    setInterval(() => {
-      testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
-      testimonialTrack.style.transform = `translateX(-${testimonialIndex * 100}%)`;
-    }, 4000);
-  }
-
-  // -------- PRODUCTS SLIDER --------
-  const productTrack = document.querySelector(".product-track");
-  const productSlides = document.querySelectorAll(".product-item");
-  const prevBtn = document.querySelector(".slider-btn.prev");
-  const nextBtn = document.querySelector(".slider-btn.next");
-  let productIndex = 0;
-
-  if (productTrack && productSlides.length > 0 && prevBtn && nextBtn) {
-    function showProductSlide(i) {
-      if (i < 0) productIndex = productSlides.length - 1;
-      else if (i >= productSlides.length) productIndex = 0;
-      else productIndex = i;
-
-      productTrack.style.transform = `translateX(-${productIndex * 100}%)`;
+      track.style.transform = `translateX(-${index * 100}%)`;
     }
 
-    prevBtn.addEventListener("click", () => showProductSlide(productIndex - 1));
-    nextBtn.addEventListener("click", () => showProductSlide(productIndex + 1));
+    prevBtn?.addEventListener("click", () => showSlide(index - 1));
+    nextBtn?.addEventListener("click", () => showSlide(index + 1));
 
-    setInterval(() => showProductSlide(productIndex + 1), 5000);
+    let interval = setInterval(() => showSlide(index + 1), intervalTime);
+
+    const sliderContainer = track.parentElement;
+
+    sliderContainer.addEventListener("mouseenter", () => {
+      clearInterval(interval);
+    });
+
+    sliderContainer.addEventListener("mouseleave", () => {
+      interval = setInterval(() => showSlide(index + 1), intervalTime);
+    });
   }
 
-  // -------- HAMBURGER MENU --------
+  // ------------------------------
+  // TESTIMONIAL SLIDER
+  // ------------------------------
+  createSlider(
+    document.querySelector(".testimonial-list"),
+    document.querySelectorAll(".testimonial-item"),
+    document.querySelector(".testimonial-arrow.prev"),
+    document.querySelector(".testimonial-arrow.next"),
+    3000,
+  );
+
+  // ------------------------------
+  // PRODUCT SLIDER
+  // ------------------------------
+  createSlider(
+    document.querySelector(".product-track"),
+    document.querySelectorAll(".product-item"),
+    document.querySelector(".slider-btn.prev"),
+    document.querySelector(".slider-btn.next"),
+    5000,
+  );
+
+  // ------------------------------
+  // HAMBURGER MENU
+  // ------------------------------
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   const overlay = document.querySelector(".nav-overlay");
@@ -79,45 +123,50 @@ hero.from( ".navbar",{duration:2, y:-30, opacity:0}, "-=2");
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("active");
       overlay.classList.toggle("active");
+      document.body.classList.toggle("no-scroll");
     });
 
     overlay.addEventListener("click", () => {
       navLinks.classList.remove("active");
       overlay.classList.remove("active");
+      document.body.classList.remove("no-scroll");
     });
   }
-});
 
-// form submit
-const form = document.getElementById("contactForm");
-const successMsg = document.getElementById("successMsg");
+  // ------------------------------
+  // CONTACT FORM SUBMISSION
+  // ------------------------------
+  const form = document.getElementById("contactForm");
+  const successMsg = document.getElementById("successMsg");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+  if (form && successMsg) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-  const formData = new FormData(form);
+      const formData = new FormData(form);
 
-  fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: { Accept: "application/json" },
-  })
-    .then((response) => {
-      if (response.ok) {
-        // Show success message with fade-in effect
-        successMsg.classList.add("show");
-        form.reset();
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => {
+          if (response.ok) {
+            successMsg.classList.add("show");
+            form.reset();
 
-        // Hide message after 5 seconds
-        setTimeout(() => {
-          successMsg.classList.remove("show");
-        }, 5000);
-      } else {
-        alert("There was an error submitting the form. Please try again.");
-      }
-    })
-    .catch((error) => {
-      alert("There was an error submitting the form. Please try again.");
-      console.error(error);
+            setTimeout(() => {
+              successMsg.classList.remove("show");
+            }, 5000);
+          } else {
+            alert("There was an error submitting the form. Please try again.");
+          }
+        })
+
+        .catch((error) => {
+          console.error(error);
+          alert("There was an error submitting the form. Please try again.");
+        });
     });
+  }
 });

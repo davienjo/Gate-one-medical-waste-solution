@@ -108,6 +108,9 @@
     bottom: 15px;
     right: 15px;
   }
+   .testimonial-item {
+    margin: 0 0.3rem;
+  }
 }
 
 @media (max-width: 34rem) {
