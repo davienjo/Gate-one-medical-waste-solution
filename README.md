@@ -19,7 +19,9 @@ Gate One Medical Waste Solution is a responsive web application designed to show
 [View Live Demo](https://gateone-solutions.vercel.app/)
 
 ## Screenshots
-![Homepage Screenshot](screenshot.png)
+<p align="center">
+  <img src="./images/home.png" width="700" style="border-radius: 12px;" />
+</p>
 
 
 ## Author
