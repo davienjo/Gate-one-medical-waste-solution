@@ -1,0 +1,192 @@
+/* =========================
+   TESTIMONIALS SECTION
+========================= */
+
+.testimonials {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.testimonials h2 {
+  text-align: center;
+  color: var(--primary-blue);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+   SLIDER WRAPPER
+========================= */
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: var(--section-color);
+  border-radius: 12px;
+}
+
+/* =========================
+   TRACK (GSAP controls this)
+========================= */
+
+.testimonial-list {
+  display: flex;
+  
+  will-change: transform;
+}
+
+/* IMPORTANT: no flex-grow, fixed slide */
+.testimonial-item {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.testimonial-img {
+  width: 180px;
+  height: 180px;
+}
+
+.testimonial-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.testimonial-item p {
+  line-height: 1.6;
+  margin: 0.5rem 0;
+  max-width: 700px;
+}
+
+.testimonial-item h4 {
+  font-weight: 700;
+  margin: 0.3rem 0;
+}
+
+/* =========================
+   END TEXT + BUTTON
+========================= */
+
+.testimonial-end {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-muted);
+}
+
+#testimonial-btn {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.testimonial-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.5rem;
+  background: var(--accent-green);
+  color: var(--bg-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.testimonial-btn:hover {
+  transform: translateY(-3px);
+  background: var(--darker-green);
+}
+
+/* =========================
+   ARROWS (FIXED POSITION)
+========================= */
+
+.testimonial-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--bg-white);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s ease;
+}
+
+.testimonial-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.testimonial-arrow.prev {
+  left: 10px;
+}
+
+.testimonial-arrow.next {
+  right: 10px;
+}
+
+/* =========================
+   DOTS NAVIGATION
+========================= */
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.dot.active {
+  background: var(--primary-blue);
+  transform: scale(1.2);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .testimonial-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .testimonial-item p {
+    font-size: 0.95rem;
+  }
+
+  .testimonial-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}

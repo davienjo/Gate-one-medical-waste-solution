@@ -1,0 +1,48 @@
+/* ABOUT SECTION */
+
+.about-us {
+  background-color: var(--section-color);
+  padding: 4rem 2rem;
+}
+
+.about-us h2 {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.about-us p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+.about-us strong {
+  color: var(--accent-green);
+}
+
+.about-us .values {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.about-us a {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: var(--bg-white);
+  background: var(--accent-green);
+
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: all 0.5s ease;
+}
+
+.about-us a:hover {
+  background-color: var(--darker-green);
+  transform: translateY(-3px);
+}
+
+

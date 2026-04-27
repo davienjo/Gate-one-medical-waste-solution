@@ -1,0 +1,216 @@
+/* SECTION */
+.process-section {
+  background: #f6f8fb;
+  padding: 60px 20px;
+  color: rgb(31, 23, 23);
+}
+
+.process-section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.process-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* TIMELINE WRAPPER */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+   --line-scale: 0;
+}
+.timeline::after{
+content: "";
+position:absolute;
+top:0;
+left:50%;
+width:4px;
+height:100%;
+background: #0b5ed7;
+transform-origin: top;
+transform: translateX(-50%) scaleY(var(--line-scale));
+z-index: 0;
+}
+
+
+/* CONTAINER */
+.container {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  z-index: 1;
+
+  
+}
+
+.container {
+  opacity: 0.4;
+  transform: translateY(40px);
+  transition: all 0.5s ease;
+}
+
+/* ACTIVE STEP */
+.container.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.container.active .process-step {
+  box-shadow: 0 0 25px rgba(11, 94, 215, 0.25);
+  transform: scale(1.02);
+  transition: all 0.4s ease;
+}
+
+/* LEFT */
+.left-container {
+  left: 0;
+}
+
+/* RIGHT */
+.right-container {
+  left: 50%;
+}
+
+/* STEP CARD */
+.process-step {
+  background: #fff;
+  color: #1f2937;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  min-width: 250px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+/* ICON */
+.process-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* SVG NUMBER */
+.container img {
+  position: absolute;
+  width: 50px;
+  top: 30px;
+  right: -25px;
+  z-index: 3;
+}
+
+.right-container img {
+  left: -25px;
+  /* right: auto; */
+}
+
+/* ARROWS */
+.left-arrow {
+  position: absolute;
+  top: 28px;
+  right: -15px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 1;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 28px;
+  left: -15px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid #fff;
+  z-index: 1;
+}
+
+
+
+@media (max-width: 768px) {
+
+.process-section {
+    padding: 40px 15px;
+  }
+
+  .process-step {
+    padding: 16px;
+  }
+
+  /* =========================
+     TIMELINE LINE POSITION
+  ========================= */
+  .timeline::after {
+    left: 35px;
+    transform: translateX(0) scaleY(var(--line-scale));
+  }
+
+  /* =========================
+     CONTAINERS (STACK LAYOUT)
+  ========================= */
+  .container {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 70px;
+    padding-right: 20px;
+  }
+
+  .left-container,
+  .right-container {
+    left: 0 !important;
+  }
+
+  /* =========================
+     STEP CARD (optional polish)
+  ========================= */
+  .process-step {
+    min-width: unset;
+    flex-direction: row;
+  }
+
+  /* =========================
+     IMAGES (NUMBER BADGES)
+  ========================= */
+  .container img {
+    left: 10px;
+    right: auto;
+  }
+
+  .right-container img,
+  .left-container img {
+    left: 10px;
+    right: auto;
+  }
+
+  /* =========================
+     ARROWS (ALL POINT LEFT)
+  ========================= */
+  .right-arrow,
+  .left-arrow {
+    left: -15px;
+    right: auto;
+    border-left: 15px solid #fff;
+    border-right: 0;
+  }
+
+  /* =========================
+     ICON ALIGNMENT (optional polish)
+  ========================= */
+  .process-icon {
+    flex-shrink: 0;
+  }
+
+}
+
