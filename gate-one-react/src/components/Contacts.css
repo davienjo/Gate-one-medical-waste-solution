@@ -1,0 +1,95 @@
+/* CONTACT SECTION */
+.contact-section {
+  background-color: var(--section-color);
+}
+.contact-section h2 {
+  color: var(--primary-blue);
+  text-align: center;
+}
+.contact-section p {
+  color: var(--text-dark);
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  color: var(--primary-blue);
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.form-group input {
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.form-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 0.5rem 0;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--accent-green);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.contact-form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1.5rem;
+  color: var(--bg-white);
+  background-color: var(--accent-green);
+  cursor: pointer;
+  font-size: 1rem;
+  margin-block: 1rem;
+  color: var(--bg-white);
+  text-align: center;
+}
+
+.contact-form button:hover {
+  background: var(--darker-green);
+}
+
+/* Success message */
+#successMsg {
+  color: green;
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#successMsg.show {
+  display: block;
+  opacity: 1;
+}

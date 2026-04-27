@@ -1,0 +1,61 @@
+
+
+.cta {
+  background-color: var(--primary-blue);
+  max-width: 1000px;
+  width: 95%;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem auto;
+}
+
+.cta h2 {
+  color: var(--bg-white);
+  font-size: 1.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cta p {
+  line-height: 1.5;
+  font-size: 1rem;
+  max-width: 400px;
+  text-align: center;
+  color: var(--bg-white);
+}
+.cta-link {
+  background: var(--accent-green);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: var(--bg-white);
+  transition: all 0.3s ease;
+}
+.cta-link:hover {
+  background-color: var(--darker-green);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 60rem) {
+  html {
+    font-size: 90%;
+  }
+}
+
+
+
+@media (max-width: 34rem) {
+  html {
+    font-size: 70%;
+  }
+
+  .cta {
+    padding: 1rem;
+    
+  }
+
+}

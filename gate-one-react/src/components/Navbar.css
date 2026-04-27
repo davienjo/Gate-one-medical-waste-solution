@@ -1,0 +1,161 @@
+
+/* NAV STYLE */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  background-color: var(--bg-white);
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 1000;
+}
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color: var(--darker-blue);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-links a:hover{
+  color: var(--accent-green);
+}
+
+.nav-links a::after{
+  content: "";
+  position: absolute;
+  bottom:-5px;
+  left:0;
+  width: 0;
+  height:3px;
+  background:var(--accent-green);
+  transition: all 0.5s ease;
+
+}
+
+.nav-links a:hover::after{
+ width:100%;
+  
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  width: 100px;
+}
+.logo img {
+  width: 100%;
+}
+
+.nav-end {
+  background-color: var(--primary-blue);
+  padding: 5px 10px;
+  color: var(--bg-white);
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+
+.nav-end:hover {
+  background-color: var(--darker-blue);
+  transform: translateY(-2px);
+}
+
+/* hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--darker-blue);
+  z-index: 1101;
+  position: relative;
+  /* background: red; */
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 900;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* end of navbar */
+
+/* media queries */
+@media (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+ 
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    max-width: 300px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 6rem;
+    z-index: 1001;
+    transition: right 0.4s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-overlay {
+    display: none;
+  }
+
+  .nav-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+}
+@media (max-width: 480px) {
+  html {
+    font-size: 70%;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+  }
+}
