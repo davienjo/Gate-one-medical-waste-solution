@@ -7,6 +7,7 @@ Gate One Medical Waste Solution is a responsive web application designed to show
 - HTML
 - CSS
 - JavaScript
+- React
 
 ## Features
 - Responsive design for desktop and mobile devices  

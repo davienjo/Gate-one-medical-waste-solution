@@ -1,4 +1,4 @@
-import safeRemoval from "../assets/safe-removal.webp";
+import safeRemoval from "../assets/Safe-removal.webp";
 import Pharmaceuticals from "../assets/Pharmaceutical.webp";
 import chemicalWaste from "../assets/chemical-waste.webp";
 import Pickup from "../assets/gate-one-pickup.webp";
