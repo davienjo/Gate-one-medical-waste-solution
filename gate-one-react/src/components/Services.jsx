@@ -44,7 +44,7 @@ function Services() {
           <div className="services-item" key={index}>
             <img
               src={service.img}
-              alt={service.dec}
+              alt={service.title}
               className="service-img"
               loading="lazy"
             />
