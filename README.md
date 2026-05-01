@@ -21,7 +21,7 @@ Gate One Medical Waste Solution is a responsive web application designed to show
 
 ## Screenshots
 <p align="center">
-  <img src="./images/home.png" width="700" style="border-radius: 12px;" />
+  <img src="./public/home.png" width="700" />
 </p>
 
 
