@@ -33,11 +33,11 @@ function Testimonials() {
     },
   ];
 
-  // CLONES for infinite effect
+  
   const slides = [
-    testimonials[testimonials.length - 1], // last clone (0 index)
+    testimonials[testimonials.length - 1], 
     ...testimonials,
-    testimonials[0], // first clone (last index)
+    testimonials[0], 
   ];
 
   // =========================
@@ -58,13 +58,13 @@ function Testimonials() {
   const handleLoopFix = () => {
     setIsAnimating(false);
 
-    // if at last clone → jump to real first
+    
     if (index === slides.length - 1) {
       gsap.set(trackRef.current, { xPercent: -100 });
       setIndex(1);
     }
 
-    // if at first clone → jump to real last
+  
     if (index === 0) {
       gsap.set(trackRef.current, {
         xPercent: -(slides.length - 2) * 100,
@@ -127,7 +127,7 @@ function Testimonials() {
         </button>
       </div>
 
-      {/* DOTS (real slides only) */}
+      {/* DOTS */}
       <div className="dots">
         {testimonials.map((_, i) => {
           const realIndex =

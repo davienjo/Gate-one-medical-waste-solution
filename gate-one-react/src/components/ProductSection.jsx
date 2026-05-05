@@ -41,12 +41,12 @@ function ProductsSection() {
   ];
 
   // =========================
-  // CLONES (infinite loop trick)
+  // infinite loop
   // =========================
   const slides = [
-    products[products.length - 1], // clone last
+    products[products.length - 1], 
     ...products,
-    products[0], // clone first
+    products[0], 
   ];
 
   // =========================
@@ -65,13 +65,13 @@ function ProductsSection() {
   // LOOP RESET LOGIC
   // =========================
   const handleLoopFix = () => {
-    // If at last clone → jump to real first
+    
     if (index === slides.length - 1) {
       gsap.set(trackRef.current, { xPercent: -100 });
       setIndex(1);
     }
 
-    // If at first clone → jump to real last
+   
     if (index === 0) {
       gsap.set(trackRef.current, {
         xPercent: -(slides.length - 2) * 100,
@@ -87,7 +87,7 @@ function ProductsSection() {
   const prevSlide = () => setIndex((prev) => prev - 1);
 
   // =========================
-  // AUTO PLAY (optional but Netflix-like)
+  // AUTO PLAY 
   // =========================
   useEffect(() => {
     const interval = setInterval(() => {
