@@ -30,7 +30,7 @@
   border-radius: 16px;
 }
 
-/* TRACK (GSAP controls movement) */
+
 .product-track {
   display: flex;
   will-change: transform;
